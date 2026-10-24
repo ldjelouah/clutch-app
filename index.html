@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Clutch · pronostics NBA</title>
+  <meta name="description" content="Pronostics NBA du jour : probabilité de victoire, score attendu, handicap et total, et bilan des pronostics publiés.">
+  <meta name="theme-color" content="#101418" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f1f2ee" media="(prefers-color-scheme: light)">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Clutch">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/icon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <div>
+        <h1 id="title">Pronostics du jour</h1>
+        <p id="sub">Chargement…</p>
+      </div>
+      <button id="install" class="install" type="button" hidden>Installer l'app</button>
+    </header>
+    <p id="install-hint" class="notice hint" hidden>
+      <span id="install-hint-text"></span>
+      <button id="install-hint-close" type="button" aria-label="Masquer">×</button>
+    </p>
+    <p id="notice" class="notice" hidden></p>
+    <nav class="views" aria-label="Vue">
+      <a href="#" data-v="day" aria-current="page">Matchs du jour</a>
+      <a href="#bilan" data-v="bilan">Bilan</a>
+    </nav>
+    <div class="filters" role="group" aria-label="Filtrer les matchs">
+      <button data-f="all" aria-pressed="true">Tous</button>
+      <button data-f="ok" aria-pressed="false">Fiables seulement</button>
+    </div>
+    <main id="list" class="list" aria-live="polite"></main>
+    <main id="bilan" class="bilan" aria-live="polite" hidden></main>
+    <footer id="foot"></footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
