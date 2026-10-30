@@ -1,0 +1,15 @@
+{
+  "name": "Clutch - pronostics NBA",
+  "short_name": "Clutch",
+  "description": "Pronostics NBA du jour : probabilité de victoire, handicap, total et bilan des pronostics publiés.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#101418",
+  "theme_color": "#101418",
+  "lang": "fr",
+  "icons": [
+    { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
