@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Clutch · pronostics NBA</title>
+  <meta name="description" content="Pronostics NBA du jour : probabilité de victoire, score attendu, handicap et total, et bilan des pronostics publiés.">
+  <meta name="theme-color" content="#101418" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f1f2ee" media="(prefers-color-scheme: light)">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Clutch">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/icon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <div>
+        <h1 id="title">Pronostics du jour</h1>
+        <p id="sub">Chargement…</p>
+      </div>
+      <button id="install" class="install" type="button" hidden>Installer l'app</button>
+    </header>
+    <p id="install-hint" class="notice hint" hidden>
+      <span id="install-hint-text"></span>
+      <button id="install-hint-close" type="button" aria-label="Masquer">×</button>
+    </p>
+    <p id="notice" class="notice" hidden></p>
+    <nav class="views" aria-label="Vue">
+      <a href="#" data-v="day" aria-current="page">Matchs du jour</a>
+      <a href="#bilan" data-v="bilan">Bilan</a>
+    </nav>
+    <div class="filters" role="group" aria-label="Filtrer les matchs">
+      <button data-f="all" aria-pressed="true">Tous</button>
+      <button data-f="ok" aria-pressed="false">Fiables seulement</button>
+      <button data-f="high" aria-pressed="false">Haute confiance</button>
+      <button data-f="range" aria-pressed="false">Dans ma fourchette</button>
+    </div>
+    <details id="range" class="range">
+      <summary>Ma fourchette de cotes : <span id="range-label">1,50 – 1,70</span></summary>
+      <div class="range-form">
+        <label>De <input id="range-lo" type="number" step="0.01" min="1.01" max="50" inputmode="decimal" aria-label="Cote minimale"></label>
+        <label>à <input id="range-hi" type="number" step="0.01" min="1.01" max="50" inputmode="decimal" aria-label="Cote maximale"></label>
+        <p class="note">Chaque carte met en avant les marchés du modèle dont la cote juste (1 / probabilité) tombe dans cette fourchette : vainqueur et mi-temps d'abord, puis lignes de handicap et de total. Le filtre « Dans ma fourchette » ne garde que les matchs où le vainqueur du match y est : une mi-temps y est presque toujours, et une échelle de lignes en a une dans n'importe quelle fourchette. Une cote juste n'est pas une valeur : il n'y a de valeur que si le bookmaker offre plus que la cote juste, et un marché à 60 % sur un match marqué Prudence est proche du pile ou face.</p>
+      </div>
+    </details>
+    <main id="list" class="list" aria-live="polite"></main>
+    <main id="bilan" class="bilan" aria-live="polite" hidden></main>
+    <footer id="foot"></footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
